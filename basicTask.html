@@ -11,7 +11,7 @@
             //document.write(test);
 			
 			function numberTest(num){
-				return num**2;
+				console.log(num ** 2);
 			}
 			
 			//alert(numberTest(5));
@@ -33,7 +33,7 @@
 			console.log(person.name + " " + person.age + " " + person.occupation);
 
             function changeAge(){
-                person.age++
+                person.age++;
                 console.log(person.name + " " + person.age + " " + person.occupation);
             }
 			
@@ -41,10 +41,9 @@
         </script>
 
 
-<input type="button" onclick="changeAge()">
-<br>
-
-<input type="text"> 
+		<input type="button" onclick="changeAge()" value="increase age">
+		<br>
+		<br/>
 
     </body>
 </html>
