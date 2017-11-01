@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            //TASK ONE
+            function doubleChar(word){
+                let newString = "";
+                for(let letter in word){
+                    newString = newString + word[letter] + word[letter];
+                }
+                console.log(newString);
+            }
+
+            //TASK TWO
+            function getSandwich(sandwich){
+                let abc = "";
+                if(sandwich.includes("bread")){
+                    let sandwichArray = sandwich.split("bread");
+                    console.log(sandwichArray[1]);
+                }else{
+                    console.log(" ");
+                }
+            }
+
+            //TASK THREE
+            function evenlySpaced(num1, num2, num3){
+                let biggest = 0;
+                let medium = 0;
+                let smallest = 0;
+
+                if((num1 > num2) && (num1 > num3)){
+                    biggest = num1;
+                    if(num2 > num3){
+                        medium = num2;
+                        smallest = num3;
+                    }else{
+                        medium = num3;
+                        smallest = num2;
+                    }
+                }else if((num2 > num1) && (num2 > num3)){
+                    biggest = num2;
+                    if(num3 > num2){
+                        medium = num3;
+                        smallest = num2;
+                    }else{
+                        medium = num2;
+                        smallest = num3;
+                    }
+                }else{
+                    biggest = num3;
+                    if(num1 > num2){
+                        medium = num1;
+                        smallest = num2;
+                    }else{
+                        medium = num2;
+                        smallest = num1;
+                    }
+                }
+
+                if((biggest - medium) == (medium - smallest)){
+                    console.log("true");
+                }else{
+                    console.log("false");
+                }
+
+            }
+
+            //TASK FOUR
+            function nTwice(word, num){
+                let newString = "";
+                newString += word.substr(0,num);
+                newString += word.substr(word.length - num, word.length);
+                console.log(newString);
+            }
+
+            //TASK FIVE
+            function endsLy(word){
+                if(word.substr(word.length - 2, word.length) == "ly"){
+                    console.log("true");
+                }else{
+                    console.log("false");
+                }
+            }
+
+            //TASK SIX (not finished)
+            function stringClean(word){
+                let newString = "";
+
+                for(letter in word){
+                    if(word[letter] == word[letter + 1]){
+                        slice(word[letter + 1]);
+                        console.log(word);
+                    }
+                }
+            }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            doubleChar("hi-there");
+            getSandwich("xxbreadjambreadyy");
+            evenlySpaced(2,4,6);
+            nTwice("chocolate", 1);
+            endsLy("oddly");
+            stringClean("yyzzza");
+        </script>
+    </body>
+</html>
