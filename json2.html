@@ -30,7 +30,18 @@
             }
 
         function searchData(){
-            
+            let searchTerm = document.getElementById("search").value;
+            searchTerm = searchTerm.toLowerCase();
+            searchWords = reqResponse;
+            for(let entry in searchWords){
+                let subWords = searchWords[entry];
+                for(let subEntry in subWords){
+                    tempSubWord = subWords[subEntry].toLowerCase();
+                    if(tempSubWord.includes(searchTerm)){
+                        console.log(subWords[subEntry]);
+                    }
+                }
+            }
 
         }
 
