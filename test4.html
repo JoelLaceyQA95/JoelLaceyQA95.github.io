@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function triple(myString){
+                var count = 0;
+                for(var i = 0; i < myString.length; i++){
+                    if(myString.charAt(i) == myString.charAt(i+1) && myString.charAt(i) == myString.charAt(i+2)){
+                        count++;
+                    }
+                }
+                console.log(count);
+            }
+
+            triple("xxxabyyyycd");
+        </script>
+    </body>
+</html>

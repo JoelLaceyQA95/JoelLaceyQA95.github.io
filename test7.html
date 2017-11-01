@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        let url = "https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json";
+        let reqResponse;
+
+        function getData(url) {
+            let myRequest = new XMLHttpRequest();
+
+            myRequest.open("GET", url);
+            myRequest.responseType = "json";
+            myRequest.send();
+            myRequest.onreadystatechange = function () {
+                if (myRequest.readyState == XMLHttpRequest.DONE) {
+                    reqResponse = myRequest.response;
+                    //document.getElementById("para").innerHTML = JSON.stringify(reqResponse);
+                    for(let entry in reqResponse){
+                        let subResponse = reqResponse[entry];
+                        for(let subEntry in subResponse){
+                        let para =  document.createElement("p");
+                        let t = document.createTextNode(subEntry + ": " + subResponse[subEntry]);
+                        para.appendChild(t);
+                        document.body.appendChild(para);
+                            }
+                       }
+                    }
+                }
+            }
+
+        function searchData(){
+            
+
+        }
+
+        getData(url);
+    </script>
+
+    <p id="para"></p>
+    <input type="text" id="search">
+    <input type="button" id="searchBtn" value="Search" onclick="searchData()">
+</body>
+
+</html>

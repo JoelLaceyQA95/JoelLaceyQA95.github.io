@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function numIteration(number){
+                if(number == 1){
+                    return;
+                }
+                console.log(number);
+
+                if(number % 3 == 0){
+                    newNumber = number / 3;
+                    console.log(newNumber);
+                    numIteration(newNumber);
+                }else if((number+1) % 3 == 0){
+                        console.log(number+1);
+                        newNumber = (number+1) / 3;
+                        console.log(newNumber);
+                        numIteration(newNumber);
+                }else if((number-1) % 3 == 0){
+                        console.log(number-1);
+                        newNumber = (number-1) / 3;
+                        console.log(newNumber);
+                        numIteration(newNumber);
+                    }
+                }
+
+                numIteration(118);
+        </script>
+    </body>
+</html>

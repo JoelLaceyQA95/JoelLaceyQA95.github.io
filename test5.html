@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function createPara(){
+                let para = document.createElement("P");
+                document.body.appendChild(para);
+                para.id = "para";
+            }
+
+            function changeText(){
+                if(document.body.contains(document.getElementById("para"))){
+                    let t = document.createTextNode(document.getElementById("userText").value);
+                    document.getElementById("para").appendChild(t);
+                }else{
+                    createPara();
+                    changeText();
+                }
+            }
+
+            function deletePara(){
+                if(document.body.contains(document.getElementById("para"))){
+                let child = document.getElementById("para");
+                document.body.removeChild(child);
+                }
+            }
+        </script>
+
+        <input type="button" onclick="createPara()" value="Create Paragraph">
+        <br></br>
+
+        <input type="text" id="userText">
+        <input type="button" onclick="changeText()" value="Change Text">
+        <br></br>
+
+        <input type="button" onclick="deletePara()" value="Delete Paragraph">
+    </body>
+</html>

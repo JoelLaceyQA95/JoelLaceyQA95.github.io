@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        let url = "https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json";
+
+        function getData(url) {
+            let myRequest = new XMLHttpRequest();
+
+            myRequest.open("GET", url);
+            myRequest.responseType = "json";
+            myRequest.send();
+            myRequest.onreadystatechange = function () {
+                if (myRequest.readyState == XMLHttpRequest.DONE) {
+                    let reqResponse = myRequest.response;
+                    //document.getElementById("para").innerHTML = JSON.stringify(reqResponse);
+
+                    for(let entry in reqResponse){
+                       if(reqResponse[entry].constructor === Array){
+                           for(let entry2 in reqResponse[entry]){
+                               let tempArray = reqResponse[entry][entry2];
+                               for(let temp in tempArray){
+                               let para2 = document.createElement("p");
+                               let t2 = document.createTextNode(temp + ": " + tempArray[temp] + " ");
+                               para2.appendChild(t2);
+                               document.body.appendChild(para2);
+                               }
+                           }
+                       }else{
+                            let para =  document.createElement("p");
+                            let t = document.createTextNode(entry + ":  " + reqResponse[entry]);
+                            para.appendChild(t);
+                            document.body.appendChild(para);
+                       }
+                    }
+
+                }
+            }
+        }
+        getData(url);
+    </script>
+
+    <p id="para"></p>
+</body>
+
+</html>
